@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% for member in team %}
+        <h2>{{ member.firstname }} {{ member.lastname }}
+            {% if member.firstname == 'Fabien' %}❤{% endif %}
+        </h2>
+        <p>Date de naissance : {{ member.dateOfBirth }}</p>
+        <p>Créateur de : {{ member.creatorOf }}</p>
+        <p>Description : {{ member.description }}</p>
+        <img src="{{ member.picture }}" alt="Image de {{ member.firstname }}">
+    {% endfor %}
+{% endblock %}
+

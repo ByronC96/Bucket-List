@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% for wish in wishes %}
+       <li><a class="wish_list" href="{{ path('app_wish_details', {'id': wish.id}) }}">{{ wish.id }}-{{ wish.title }}</a></li>
+        <br>
+    {% endfor %}
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+

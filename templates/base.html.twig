@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Bucket-List{% endblock %}</title>
+    <link rel="icon" href="{{ asset('assets/favicon.png') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&display=swap">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+</head>
+<body>
+<header>
+        <div class="header-logo">
+                <a href="{{ path('app_main_home') }}" title="Go back to homepage">
+                    <img src="{{ asset('assets/logo.svg') }}" alt="Bucket-List Logo">
+                    <h1>Bucket-List</h1>
+                </a>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="{{ path('app_main_home') }}" title="Go back to homepage">Home</a></li>
+                <li><a href="{{ path('app_main_aboutus') }}" title="About Us">About Us</a></li>
+                <li><a href="{{ path('app_wish_list') }}" title="Wish List">Wish List</a></li>
+                <li><a href="{{ path('app_wish_add') }}" title="Add Wish">New Wish</a></li>
+            </ul>
+        </nav>
+</header>
+<div class="flash-container">
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="flash flash-{{ label }}">{{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+</div>
+<main>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</main>
+<footer>
+    <div class="container">
+        © Bucket-List {{ "now"|date("Y") }}
+    </div>
+</footer>
+</body>
+</html>
